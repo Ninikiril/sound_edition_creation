@@ -1,0 +1,97 @@
+{
+    "version": 8,
+    "configurePresets": [
+        {
+            "name": "default-config",
+            "inherits": "conf-windows",
+            "generator": "Ninja Multi-Config",
+            "cacheVariables": {
+                "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+                "VCPKG_TARGET_TRIPLET": "x64-windows",
+                "CMAKE_C_COMPILER": "cl.exe",
+                "CMAKE_CXX_COMPILER": "cl.exe",
+                "CMAKE_CUDA_COMPILER": "C:/Users/Name/NVIDIA_Toolkit/CUDA/bin/nvcc.exe"
+            },
+            "environment": {
+                "VCPKG_ROOT": "C:/Users/Name/repositories/vcpkg"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "common-build",
+            "configurePreset": "default-config",
+            "jobs": 6,
+            "hidden": true
+        },
+        {
+            "name": "release-build",
+            "inherits": "common-build",
+            "configuration": "Release",
+            "hidden": true
+        },
+        {
+            "name": "debug-build",
+            "inherits": "common-build",
+            "configuration": "Debug",
+            "hidden": true
+        },
+        {
+            "name": "debinfo-build",
+            "inherits": "common-build",
+            "configuration": "RelWithDebInfo",
+            "hidden": true
+        },
+        {
+            "name": "docs-build",
+            "configurePreset": "default-config",
+            "configuration": "Release",
+            "targets": [
+                "docs"
+            ]
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "common-test",
+            "configurePreset": "default-config",
+            "hidden": true,
+            "output": {
+                "outputLogFile": "test_output.log",
+                "outputJUnitFile": "test_output.xml"
+            }
+        },
+        {
+            "name": "release-test",
+            "inherits": "common-test",
+            "configuration": "Release"
+        },
+        {
+            "name": "debug-test",
+            "inherits": "common-test",
+            "configuration": "Debug"
+        },
+        {
+            "name": "debinfo-test",
+            "inherits": "common-test",
+            "configuration": "RelWithDebInfo"
+        }
+    ],
+    "packagePresets": [
+        {
+            "name": "default-package",
+            "description": "default-package",
+            "displayName": "default-package",
+            "configurePreset": "default-config",
+            "generators": [
+                "TGZ"
+            ],
+            "output": {
+                "debug": false,
+                "verbose": false
+            },
+            "packageDirectory": "../install/",
+            "hidden": true
+        }
+    ]
+}

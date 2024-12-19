@@ -1,0 +1,42 @@
+{
+  "dependencies": [
+    {
+      "name": "boost",
+      "version>=": "1.86.0"
+    },
+    {
+      "name": "catch2",
+      "version>=": "3.7.1"
+    }
+  ],
+  "overrides": [
+    {
+      "name": "boost-charconv",
+      "version": "1.86.0"
+    },
+    {
+      "name": "boost-cmake",
+      "version": "1.86.0"
+    },
+    {
+      "name": "boost-cobalt",
+      "version": "1.86.0"
+    },
+    {
+      "name": "boost-headers",
+      "version": "1.86.0"
+    },
+    {
+      "name": "boost-redis",
+      "version": "1.86.0"
+    },
+    {
+      "name": "boost-scope",
+      "version": "1.86.0"
+    },
+    {
+      "name": "vcpkg-boost",
+      "version": "2024-05-15"
+    }
+  ]
+}

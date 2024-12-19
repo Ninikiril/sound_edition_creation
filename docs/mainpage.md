@@ -1,0 +1,1 @@
+# Cpp project template {#mainpage}
