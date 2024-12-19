@@ -1,6 +1,8 @@
 {
-    "lib_count": -1,
-    "libs": [],
+    "lib_count": 0,
+    "libs": [
+        "import_export"
+    ],
     "app_count": -1,
     "apps": []
 }

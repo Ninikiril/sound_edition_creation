@@ -49,6 +49,30 @@
             "targets": [
                 "docs"
             ]
+        },
+        {
+            "name": "import_export-release-build",
+            "inherits": "release-build",
+            "targets": [
+                "import_export",
+                "test_import_export"
+            ]
+        },
+        {
+            "name": "import_export-debug-build",
+            "inherits": "debug-build",
+            "targets": [
+                "import_export",
+                "test_import_export"
+            ]
+        },
+        {
+            "name": "import_export-debinfo-build",
+            "inherits": "debinfo-build",
+            "targets": [
+                "import_export",
+                "test_import_export"
+            ]
         }
     ],
     "testPresets": [
@@ -92,6 +116,13 @@
             },
             "packageDirectory": "../install/",
             "hidden": true
+        },
+        {
+            "name": "import_export-package",
+            "inherits": "default-package",
+            "configurations": [
+                "import_export-release-build"
+            ]
         }
     ]
 }
